@@ -1,4 +1,4 @@
-package com.twu.user;
+package com.twu.users;
 
 public class User {
     private String name;

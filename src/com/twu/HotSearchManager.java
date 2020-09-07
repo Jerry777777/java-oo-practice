@@ -1,10 +1,13 @@
 package com.twu;
 
+import com.twu.users.User;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class HotSearchManager {
-    private List<HotSearch> hotSearchList;
-    private List<Integer> hotSearchPrice;
+    private List<HotSearch> hotSearchList = new ArrayList<>();
+    private List<Integer> hotSearchPrice = new ArrayList<>();
 
     public HotSearchManager(List<HotSearch> hotSearchList, List<Integer> hotSearchPrice) {
         this.hotSearchList = hotSearchList;
@@ -31,7 +34,7 @@ public class HotSearchManager {
         this.hotSearchPrice = hotSearchPrice;
     }
 
-    public void printHotSearchList() {
+    public void checkHotSearchList() {
         this.hotSearchList.forEach(System.out::println);
     }
 
@@ -43,14 +46,19 @@ public class HotSearchManager {
         this.hotSearchList.add(hotSearch);
     }
 
-    public void voteForHotSearch(String content, int vote) {
+    public void voteForHotSearch(User user, String content, int vote){
         for (HotSearch hotSearch : this.hotSearchList) {
             if (hotSearch.getContent().equals(content)) {
                 hotSearch.setVote(hotSearch.getVote() + vote);
+                user.setVoteCount(user.getVoteCount()-vote);
                 break;
             } else {
                 return;
             }
         }
+    }
+
+    public void buyHotSearch(String contentToBuy, int rank) {
+
     }
 }

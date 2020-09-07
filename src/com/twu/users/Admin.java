@@ -1,4 +1,4 @@
-package com.twu.user;
+package com.twu.users;
 
 public class Admin {
     private final String name = "admin";
