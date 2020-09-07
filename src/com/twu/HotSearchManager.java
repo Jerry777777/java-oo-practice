@@ -11,6 +11,10 @@ public class HotSearchManager {
         this.hotSearchPrice = hotSearchPrice;
     }
 
+    public HotSearchManager() {
+
+    }
+
     public List<HotSearch> getHotSearchList() {
         return hotSearchList;
     }
