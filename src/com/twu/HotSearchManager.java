@@ -35,7 +35,8 @@ public class HotSearchManager {
     }
 
     public void checkHotSearchList() {
-        this.hotSearchList.forEach(System.out::println);
+
+        this.hotSearchList.stream().sorted((h1, h2) -> h2.getVote() - h1.getVote()).forEach(System.out::println);
     }
 
     public void addHotSearch(HotSearch hotSearch) {
@@ -47,18 +48,19 @@ public class HotSearchManager {
     }
 
     public void voteForHotSearch(User user, String content, int vote) {
-        for (HotSearch hotSearch : this.hotSearchList) {
-            if (hotSearch.getContent().equals(content)) {
-                hotSearch.setVote(hotSearch.getVote() + vote);
-                user.setVoteCount(user.getVoteCount() - vote);
-                break;
-            } else {
-                return;
+        if (vote > user.getVoteCount()) {
+            throw new VoteFailException("剩余票数不足");
+        } else {
+            for (HotSearch hotSearch : this.hotSearchList) {
+                if (hotSearch.getContent().equals(content)) {
+                    hotSearch.setVote(hotSearch.getVote() + vote);
+                    user.setVoteCount(user.getVoteCount() - vote);
+                    break;
+                }
             }
         }
     }
 
     public void buyHotSearch(String contentToBuy, int rank) {
-
     }
 }
