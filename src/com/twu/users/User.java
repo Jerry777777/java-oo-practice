@@ -6,7 +6,7 @@ public class User {
 
     public User(String name) {
         this.name = name;
-        this.voteCount=10;
+        this.voteCount = 10;
     }
 
     public String getName() {

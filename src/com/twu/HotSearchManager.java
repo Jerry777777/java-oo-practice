@@ -54,7 +54,7 @@ public class HotSearchManager {
 
     public void voteForHotSearch(User user, String content, int vote) {
         if (vote > user.getVoteCount()) {
-            throw new VoteFailException("剩余票数不足");
+            throw new VoteFailException("投票失败：剩余票数不足");
         } else {
             for (HotSearch hotSearch : this.hotSearchList) {
                 if (hotSearch.getContent().equals(content)) {
