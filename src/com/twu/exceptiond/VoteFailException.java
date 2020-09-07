@@ -1,4 +1,4 @@
-package com.twu;
+package com.twu.exceptiond;
 
 public class VoteFailException extends RuntimeException {
     public VoteFailException(String message) {

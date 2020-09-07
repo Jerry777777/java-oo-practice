@@ -1,6 +1,6 @@
 package com.twu.services;
 
-import com.twu.WrongInputException;
+import com.twu.exceptiond.WrongInputException;
 import com.twu.repositories.HotSearchRepository;
 import com.twu.repositories.HotSearchRepositoryI;
 import com.twu.users.Admin;

@@ -1,7 +1,7 @@
 package com.twu.services;
 
 import com.twu.HotSearch;
-import com.twu.VoteFailException;
+import com.twu.exceptiond.VoteFailException;
 import com.twu.repositories.HotSearchRepository;
 import com.twu.users.User;
 

@@ -1,5 +1,6 @@
 package com.twu;
 
+import com.twu.exceptiond.VoteFailException;
 import com.twu.users.User;
 
 import java.util.ArrayList;
