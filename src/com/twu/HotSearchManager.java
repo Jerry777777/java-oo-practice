@@ -53,8 +53,13 @@ public class HotSearchManager {
         } else {
             for (HotSearch hotSearch : this.hotSearchList) {
                 if (hotSearch.getContent().equals(content)) {
-                    hotSearch.setVote(hotSearch.getVote() + vote);
+                    int voteToAdd = vote;
+                    if (hotSearch.isSuperHotSearch()) {
+                        voteToAdd = vote * 2;
+                    }
+                    hotSearch.setVote(hotSearch.getVote() + voteToAdd);
                     user.setVoteCount(user.getVoteCount() - vote);
+                    System.out.println("投票成功！");
                     break;
                 }
             }

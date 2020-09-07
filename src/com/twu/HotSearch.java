@@ -20,7 +20,7 @@ public class HotSearch {
         this.isSuperHotSearch = false;
     }
 
-    public HotSearch(String content, int vote, boolean isSuperHotSearch) {
+    public HotSearch(String content, boolean isSuperHotSearch) {
         this.content = content;
         this.vote = vote;
         this.isSuperHotSearch = isSuperHotSearch;

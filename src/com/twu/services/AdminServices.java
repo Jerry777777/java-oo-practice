@@ -26,8 +26,9 @@ public class AdminServices implements AdminServicesI {
             case "3":
                 System.out.println("请输入你要添加的超级热搜内容：");
                 String contentToAddSuper = scanner.next();
-                HotSearchRepository.hotSearchManager.addSuperHotSearch(new HotSearch(contentToAddSuper));
+                HotSearchRepository.hotSearchManager.addSuperHotSearch(new HotSearch(contentToAddSuper, true));
                 homePage(admin);
+                break;
             case "4":
                 break;
         }

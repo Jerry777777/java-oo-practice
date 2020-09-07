@@ -1,6 +1,7 @@
 package com.twu.services;
 
 import com.twu.HotSearch;
+import com.twu.VoteFailException;
 import com.twu.repositories.HotSearchRepository;
 import com.twu.users.User;
 
@@ -20,12 +21,16 @@ public class UserService implements UserServiceI {
                 homePage(user);
                 break;
             case "2":
-                System.out.println("请输入你要投票的热搜名称:");
-                String contentToVote = scanner.next();
-                System.out.println(String.format("请输入你要投票的热搜票数：(你目前还有：%s票)", user.getVoteCount()));
-                int voteCount = scanner.nextInt();
-                HotSearchRepository.hotSearchManager.voteForHotSearch(user, contentToVote, voteCount);
-                homePage(user);
+                try {
+                    System.out.println("请输入你要投票的热搜名称:");
+                    String contentToVote = scanner.next();
+                    System.out.println(String.format("请输入你要投票的热搜票数：(你目前还有：%s票)", user.getVoteCount()));
+                    int voteCount = scanner.nextInt();
+                    HotSearchRepository.hotSearchManager.voteForHotSearch(user, contentToVote, voteCount);
+                    homePage(user);
+                } catch (VoteFailException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             case "3":
                 System.out.println("请输入你要购买的热搜名称:");
