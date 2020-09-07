@@ -24,7 +24,7 @@ public class UserService implements UserServiceI {
                 try {
                     System.out.println("请输入你要投票的热搜名称:");
                     String contentToVote = scanner.next();
-                    System.out.println(String.format("请输入你要投票的热搜票数：(你目前还有：%s票)", user.getVoteCount()));
+                    System.out.printf("请输入你要投票的热搜票数：(你目前还有：%s票)%n", user.getVoteCount());
                     int voteCount = scanner.nextInt();
                     HotSearchRepository.hotSearchManager.voteForHotSearch(user, contentToVote, voteCount);
                     homePage(user);

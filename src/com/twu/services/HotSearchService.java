@@ -1,5 +1,6 @@
 package com.twu.services;
 
+import com.twu.WrongInputException;
 import com.twu.repositories.HotSearchRepository;
 import com.twu.repositories.HotSearchRepositoryI;
 import com.twu.users.Admin;
@@ -46,7 +47,9 @@ public class HotSearchService implements HotSearchServiceI {
                 System.out.println("密码输入错误");
                 operateHotSearch();
             }
-        }
+        } else {
+            throw new WrongInputException("选项输入错误");
 
+        }
     }
 }

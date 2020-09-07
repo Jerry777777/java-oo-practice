@@ -35,8 +35,10 @@ public class HotSearchManager {
     }
 
     public void checkHotSearchList() {
-
-        this.hotSearchList.stream().sorted((h1, h2) -> h2.getVote() - h1.getVote()).forEach(System.out::println);
+        List<HotSearch> hotSearchList = getHotSearchList();
+        hotSearchList.forEach(i -> {
+            System.out.println(hotSearchList.indexOf(i) + 1 + " " + i);
+        });
     }
 
     public void addHotSearch(HotSearch hotSearch) {
