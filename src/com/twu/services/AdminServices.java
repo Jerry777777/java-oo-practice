@@ -6,9 +6,9 @@ import com.twu.users.Admin;
 
 import java.util.Scanner;
 
-public class AdminServices implements AdminServicesI{
-    public void homePage(Admin admin){
-        System.out.println(String.format("你好,%s,你可以:",admin.getName()));
+public class AdminServices implements AdminServicesI {
+    public void homePage(Admin admin) {
+        System.out.println(String.format("你好,%s,你可以:", admin.getName()));
         System.out.println("1.查看热搜排行榜\n2.添加热搜\n3.添加超级热搜\n4.退出");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
@@ -25,7 +25,7 @@ public class AdminServices implements AdminServicesI{
                 break;
             case "3":
                 System.out.println("请输入你要添加的超级热搜内容：");
-                String contentToAddSuper= scanner.next();
+                String contentToAddSuper = scanner.next();
                 HotSearchRepository.hotSearchManager.addSuperHotSearch(new HotSearch(contentToAddSuper));
                 homePage(admin);
             case "4":

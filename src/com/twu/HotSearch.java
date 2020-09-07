@@ -60,6 +60,6 @@ public class HotSearch {
 
     @Override
     public String toString() {
-        return "content='" + content + '\'' + ", vote=" + vote ;
+        return "content='" + content + '\'' + ", vote=" + vote;
     }
 }

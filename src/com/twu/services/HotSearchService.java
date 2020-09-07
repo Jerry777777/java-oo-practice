@@ -30,19 +30,19 @@ public class HotSearchService implements HotSearchServiceI {
     @Override
     public void handle(String choice) {
         Scanner scanner = new Scanner(System.in);
-        if (choice.equals("1")){
+        if (choice.equals("1")) {
             System.out.println("请输入你的昵称:");
-            User user =new User(scanner.next()) ;
+            User user = new User(scanner.next());
             userService.homePage(user);
-        }else if (choice.equals("2")){
+        } else if (choice.equals("2")) {
             System.out.println("请输入你的昵称:");
-            String name = scanner.next() ;
+            String name = scanner.next();
             System.out.println("请输入你的密码:");
-            String passWord = scanner.next() ;
+            String passWord = scanner.next();
             Admin admin = new Admin();
-            if (name.equals(admin.getName()) && passWord.equals(admin.getPassWord())){
+            if (name.equals(admin.getName()) && passWord.equals(admin.getPassWord())) {
                 adminServices.homePage(admin);
-            }else {
+            } else {
                 System.out.println("密码输入错误");
                 operateHotSearch();
             }

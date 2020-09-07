@@ -46,11 +46,11 @@ public class HotSearchManager {
         this.hotSearchList.add(hotSearch);
     }
 
-    public void voteForHotSearch(User user, String content, int vote){
+    public void voteForHotSearch(User user, String content, int vote) {
         for (HotSearch hotSearch : this.hotSearchList) {
             if (hotSearch.getContent().equals(content)) {
                 hotSearch.setVote(hotSearch.getVote() + vote);
-                user.setVoteCount(user.getVoteCount()-vote);
+                user.setVoteCount(user.getVoteCount() - vote);
                 break;
             } else {
                 return;
