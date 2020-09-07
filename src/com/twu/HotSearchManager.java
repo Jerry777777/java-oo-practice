@@ -5,6 +5,7 @@ import com.twu.users.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HotSearchManager {
     private List<HotSearch> hotSearchList = new ArrayList<>();
@@ -20,7 +21,8 @@ public class HotSearchManager {
     }
 
     public List<HotSearch> getHotSearchList() {
-        return hotSearchList;
+
+        return this.hotSearchList.stream().sorted((h1, h2) -> h2.getVote() - h1.getVote()).collect(Collectors.toList());
     }
 
     public void setHotSearchList(List<HotSearch> hotSearchList) {
