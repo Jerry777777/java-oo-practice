@@ -1,15 +1,12 @@
 package com.twu.services;
 
 import com.twu.exceptiond.WrongInputException;
-import com.twu.repositories.HotSearchRepository;
-import com.twu.repositories.HotSearchRepositoryI;
 import com.twu.users.Admin;
 import com.twu.users.User;
 
 import java.util.Scanner;
 
 public class HotSearchService implements HotSearchServiceI {
-    private HotSearchRepositoryI hotSearchRepository = new HotSearchRepository();
     private UserServiceI userService = new UserService();
     private AdminServicesI adminServices = new AdminServices();
 

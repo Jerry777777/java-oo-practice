@@ -41,6 +41,7 @@ public class UserService implements UserServiceI {
                 System.out.println("请输入你要购买的价钱:");
                 int price = scanner.nextInt();
                 HotSearchRepository.hotSearchManager.buyHotSearch(contentToBuy, ranking, price);
+                homePage(user);
                 break;
             case "4":
                 System.out.println("请输入你要添加的热搜内容：");

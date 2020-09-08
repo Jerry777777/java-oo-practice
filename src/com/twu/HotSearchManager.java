@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 public class HotSearchManager {
     private List<HotSearch> hotSearchList = new ArrayList<>();
-    private List<Integer> hotSearchPrice = new ArrayList<>();
 
     public HotSearchManager() {
     }
@@ -25,6 +24,7 @@ public class HotSearchManager {
         for (HotSearch hotSearch : willSortHotSearch) {
             list = sortByRanking(list, hotSearch);
         }
+        this.hotSearchList = list;
         return list;
     }
 
