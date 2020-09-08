@@ -56,6 +56,7 @@ public class HotSearchManager {
         if (vote > user.getVoteCount()) {
             throw new VoteFailException("投票失败：剩余票数不足");
         } else {
+            boolean voteSuccess = false;
             for (HotSearch hotSearch : this.hotSearchList) {
                 if (hotSearch.getContent().equals(content)) {
                     int voteToAdd = vote;
@@ -64,9 +65,13 @@ public class HotSearchManager {
                     }
                     hotSearch.setVote(hotSearch.getVote() + voteToAdd);
                     user.setVoteCount(user.getVoteCount() - vote);
+                    voteSuccess = true;
                     System.out.println("投票成功！");
                     break;
                 }
+            }
+            if (!voteSuccess) {
+                throw new VoteFailException("投票失败：热搜不存在");
             }
         }
     }
